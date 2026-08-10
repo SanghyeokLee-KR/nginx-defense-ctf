@@ -25,9 +25,9 @@
 
 </details>
 
-> **이 프로젝트의 정의** — 본 프로젝트는 root 권한 공격자를 완전히 차단하려는 게 아니라, 제한된 CTF 환경에서 nginx 서비스의 복구 시간 단축과 장애 격리를 높이기 위한 가용성 실험입니다. 핵심은 '무적 서버'가 아니라 **장애 감지 → 복구 시도 → 실패 시 트래픽 격리 → 정상 노드로 우회**하는 흐름입니다.
+> **이 프로젝트의 정의**: 본 프로젝트는 root 권한 공격자를 완전히 차단하려는 게 아니라, 제한된 CTF 환경에서 nginx 서비스의 복구 시간 단축과 장애 격리를 높이기 위한 가용성 실험입니다. 핵심은 '무적 서버'가 아니라 **장애 감지 → 복구 시도 → 실패 시 트래픽 격리 → 정상 노드로 우회**하는 흐름입니다.
 
-> **범위·윤리 고지** — 권한이 부여된 교육용 CTF 경기 박스 안에서 우리 팀 nginx 가용성을 방어한 기록입니다. 모든 자동복구·모니터링 기법은 자기 서비스 가용성 유지가 목적이며, 공개 저장소이므로 공인 IP·webhook URL·팀 외 개인정보는 마스킹(`X.X.X.X`, `<REDACTED_WEBHOOK_URL>`)했습니다.
+> **범위·윤리 고지**: 권한이 부여된 교육용 CTF 경기 박스 안에서 우리 팀 nginx 가용성을 방어한 기록입니다. 모든 자동복구·모니터링 기법은 자기 서비스 가용성 유지가 목적이며, 공개 저장소이므로 공인 IP·webhook URL·팀 외 개인정보는 마스킹(`X.X.X.X`, `<REDACTED_WEBHOOK_URL>`)했습니다.
 
 <details open>
 <summary><b>목차 (클릭하여 접기/펴기)</b></summary>
@@ -36,7 +36,7 @@
 
 **소개 및 배경**
 * [1. 프로젝트 개요](#1-프로젝트-개요)
-* [2. 팀 — 5조](#2-팀--5조)
+* [2. 팀 · 5조](#2-팀--5조)
 * [3. CTF 규칙 · 위협 모델](#3-ctf-규칙--위협-모델)
 * [4. 핵심 목표](#4-핵심-목표)
 
@@ -76,7 +76,7 @@ root 공격자는 마음만 먹으면 로컬 방어(`chattr`·systemd·cron·wat
 
 ---
 
-## 2. 팀 — 5조
+## 2. 팀 · 5조
 
 | 프로필 | 멤버 | 역할 | 주요 기여 |
 | :---: | :---: | :--- | :--- |
@@ -138,7 +138,7 @@ SSH는 `#1`만 받습니다(tg-ssh + 보안그룹). `#2`/`#3`은 inbound 22를 �
 
 ![다층 방어](diagrams/png/02_defense.png)
 
-### 복구 — systemd · watchdog · cron
+### 복구 · systemd · watchdog · cron
 
 서로 다른 메커니즘이 nginx를 되살립니다. 한 계층을 끊어도 다른 계층이 복구를 시도합니다(완전 보장이 아니라 **복구 확률·속도를 높이는** 다중화).
 
@@ -158,7 +158,7 @@ watchdog 등을 `nginx-wd-a`·`net-status-mon` 같은 평범한 서비스명으�
 
 ![보호 모니터링 서비스 관계도](diagrams/png/06_daemon-mesh.png)
 
-### 변조 감지 · 자가격리 — health check · NLB failover
+### 변조 감지 · 자가격리 · health check · NLB failover
 
 ![헬스체크 자가격리 상태도](diagrams/png/03_failover.png)
 
@@ -172,7 +172,7 @@ watchdog 등을 `nginx-wd-a`·`net-status-mon` 같은 평범한 서비스명으�
 
 > `ok` 파일은 일부러 immutable로 잠그지 않았습니다. 잠그면 오염된 페이지가 채점봇에 그대로 노출되는 자폭이 되므로, "오염되면 차라리 빠진다"가 더 안전합니다.
 
-### 관측 · 알림 — auditd logging · Teams notification
+### 관측 · 알림 · auditd logging · Teams notification
 
 ![관측·감시 파이프라인](diagrams/png/03_monitor.png)
 
@@ -187,9 +187,9 @@ watchdog 등을 `nginx-wd-a`·`net-status-mon` 같은 평범한 서비스명으�
 
 | 무엇을 | 어떻게 | 결과 |
 |---|---|---|
-| nginx 가용성 유지 | 다중 복구 + 자가격리 + 클론 우회 | ✅ **채점 다운 0회** |
-| 공격자 행동 관측 | auditd → Teams 3채널 + 대시보드 | ✅ 1·2·3차 공격 전 과정 캡처 |
-| 복구 속도 | kill·stop·mask 자동 복구 | ✅ **초~1분** (임계치 분 단위 대비 여유) |
+| nginx 가용성 유지 | 다중 복구 + 자가격리 + 클론 우회 | PASS **채점 다운 0회** |
+| 공격자 행동 관측 | auditd → Teams 3채널 + 대시보드 | PASS 1·2·3차 공격 전 과정 캡처 |
+| 복구 속도 | kill·stop·mask 자동 복구 | PASS **초~1분** (임계치 분 단위 대비 여유) |
 
 ![공격·방어 통합 타임라인](diagrams/png/04_timeline.png)
 
@@ -228,7 +228,7 @@ watchdog 등을 `nginx-wd-a`·`net-status-mon` 같은 평범한 서비스명으�
 
 <table align="center">
 <tr>
-<td align="center" width="33%"><a href="screenshots/attack-2-apache-port-hijack.png"><img src="screenshots/attack-2-apache-port-hijack.png" width="100%" alt="2차 공격"></a><br><b>2차 — apache2 80 하이재킹</b><br><sub>stop nginx → fuser -k 80/tcp → apt install apache2</sub></td>
+<td align="center" width="33%"><a href="screenshots/attack-2-apache-port-hijack.png"><img src="screenshots/attack-2-apache-port-hijack.png" width="100%" alt="2차 공격"></a><br><b>2차 · apache2 80 하이재킹</b><br><sub>stop nginx → fuser -k 80/tcp → apt install apache2</sub></td>
 <td align="center" width="33%"><a href="screenshots/failover-target-isolation.png"><img src="screenshots/failover-target-isolation.png" width="100%" alt="능동 페일오버"></a><br><b>능동 페일오버 (tg-guardian)</b><br><sub>#2가 변조 감지 시 타겟그룹 자동 격리/재등록</sub></td>
 <td align="center" width="33%"><a href="screenshots/integrity-stealth-check.png"><img src="screenshots/integrity-stealth-check.png" width="100%" alt="무결성 점검"></a><br><b>무결성 점검 (stealth-check)</b><br><sub>낯선 서비스·주입·설정 변조 스캔</sub></td>
 </tr>
@@ -244,12 +244,12 @@ watchdog 등을 `nginx-wd-a`·`net-status-mon` 같은 평범한 서비스명으�
 </tr>
 </table>
 
-### 협업 — 동맹 관제 & 새벽 불침번  ·  [자세히](docs/06-alliance-nightwatch.md)
+### 협업 · 동맹 관제 & 새벽 불침번  ·  [자세히](docs/06-alliance-nightwatch.md)
 
 <table align="center">
 <tr>
-<td align="center" width="50%"><a href="screenshots/alliance-3-5-6-monitor.png"><img src="screenshots/alliance-3-5-6-monitor.png" width="100%" alt="동맹 관제"></a><br><b>동맹 관제 — 3·5·6조 상호감시</b><br><sub>규칙상 의무는 없지만 3·5·6조가 서로 다운을 감시·알림</sub></td>
-<td align="center" width="50%"><a href="screenshots/nightwatch-discord.png"><img src="screenshots/nightwatch-discord.png" width="100%" alt="새벽 불침번"></a><br><b>새벽 불침번 — Discord 교대</b><br><sub>김연동·노현주·이상혁이 새벽 교대로 서버 사수</sub></td>
+<td align="center" width="50%"><a href="screenshots/alliance-3-5-6-monitor.png"><img src="screenshots/alliance-3-5-6-monitor.png" width="100%" alt="동맹 관제"></a><br><b>동맹 관제 · 3·5·6조 상호감시</b><br><sub>규칙상 의무는 없지만 3·5·6조가 서로 다운을 감시·알림</sub></td>
+<td align="center" width="50%"><a href="screenshots/nightwatch-discord.png"><img src="screenshots/nightwatch-discord.png" width="100%" alt="새벽 불침번"></a><br><b>새벽 불침번 · Discord 교대</b><br><sub>김연동·노현주·이상혁이 새벽 교대로 서버 사수</sub></td>
 </tr>
 </table>
 
@@ -273,11 +273,11 @@ watchdog 등을 `nginx-wd-a`·`net-status-mon` 같은 평범한 서비스명으�
 
 같은 목표(가용성·복구·관측)를 실무 환경에서 다시 설계한다면:
 
-- **인스턴스 교체형 복구** — 인스턴스 내부에서 끝까지 복구하기보다, 오염된 인스턴스를 폐기하고 Auto Scaling Group + Launch Template으로 새 인스턴스로 교체합니다. 헬스체크 실패 → 자동 교체.
-- **Multi-AZ** — `#1`/`#2`/`#3`를 여러 가용영역에 분산해 AZ 장애에도 견딥니다.
-- **중앙 로깅 · 원격 관리** — CloudWatch Logs(+ 원격 syslog)로 로그를 박스 밖으로 보내고, SSM으로 접근·명령 감사를 표준화합니다.
-- **IaC** — 방어 스택 배포를 코드화합니다. 본 저장소는 [`ansible/`](ansible/)에 멱등 배포 playbook을 포함하며, 인스턴스 교체·Multi-AZ는 Terraform 영역으로 확장합니다.
-- **트래픽 레벨 방어** — nginx rate limiting·연결 수 제한, WAF 또는 CloudFront/AWS Shield.
+- **인스턴스 교체형 복구**: 인스턴스 내부에서 끝까지 복구하기보다, 오염된 인스턴스를 폐기하고 Auto Scaling Group + Launch Template으로 새 인스턴스로 교체합니다. 헬스체크 실패 → 자동 교체.
+- **Multi-AZ**: `#1`/`#2`/`#3`를 여러 가용영역에 분산해 AZ 장애에도 견딥니다.
+- **중앙 로깅 · 원격 관리**: CloudWatch Logs(+ 원격 syslog)로 로그를 박스 밖으로 보내고, SSM으로 접근·명령 감사를 표준화합니다.
+- **IaC**: 방어 스택 배포를 코드화합니다. 본 저장소는 [`ansible/`](ansible/)에 멱등 배포 playbook을 포함하며, 인스턴스 교체·Multi-AZ는 Terraform 영역으로 확장합니다.
+- **트래픽 레벨 방어**: nginx rate limiting·연결 수 제한, WAF 또는 CloudFront/AWS Shield.
 
 ---
 
@@ -308,7 +308,7 @@ keep-nginx-alive/
 
 > 환경 의존적(경기 박스 `#1` 기준). 실제 webhook URL·`index.html`·`ip_names` 등은 `/etc/nginx-defense/` 에 별도 배치합니다.
 
-**권장 — Ansible (IaC):**
+**권장 · Ansible (IaC):**
 
 ```bash
 cd ansible

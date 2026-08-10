@@ -29,9 +29,9 @@ Restart=always
 RestartSec=2
 ```
 
-`kill` 당해도 systemd가 2초 내 재기동합니다. `StartLimit*`은 **`[Unit]` 섹션 키**입니다 — systemd 229+에서 `[Service]`에 두면 "Unknown key"로 무시되므로 위치가 중요합니다. 60초당 20회까지 재기동을 허용해 반복 kill에는 공격적으로 되살아나되, 깨진 바이너리가 무한 크래시 루프로 CPU를 태우는 것은 막습니다. 한도를 넘겨 systemd가 잠시 멈추면 watchdog(5초)·cron(1분)이 `reset-failed` 후 복구를 이어받습니다.
+`kill` 당해도 systemd가 2초 내 재기동합니다. `StartLimit*`은 **`[Unit]` 섹션 키**입니다, systemd 229+에서 `[Service]`에 두면 "Unknown key"로 무시되므로 위치가 중요합니다. 60초당 20회까지 재기동을 허용해 반복 kill에는 공격적으로 되살아나되, 깨진 바이너리가 무한 크래시 루프로 CPU를 태우는 것은 막습니다. 한도를 넘겨 systemd가 잠시 멈추면 watchdog(5초)·cron(1분)이 `reset-failed` 후 복구를 이어받습니다.
 
-### ② watchdog A·B — 응답 본문으로 판정
+### ② watchdog A·B · 응답 본문으로 판정
 
 프로세스 생존이 아니라 **응답 본문(h1)**으로 살아있는지 봅니다. 살아있지만 페이지가 오염/응답불가인 경우까지 잡기 위해서입니다.
 
@@ -45,15 +45,15 @@ http_ok() { curl -s -m 3 http://127.0.0.1:80/ 2>/dev/null | grep -q "$NEEDLE"; }
 
 systemd **밖에서** `nohup`으로 돌아 `systemctl`에 의존하지 않는 복구 경로를 하나 더 확보합니다. 커널 스레드(`kworker`)와 비슷한 이름·dotfile로 단순 탐색 비용을 늘리지만, root가 `ps`로 보면 드러나므로 보안 경계로 의존하지는 않습니다. cron이 죽으면 다시 띄웁니다.
 
-## 보호 모니터링 서비스 관계도 — 다중 복구 + 이름 추상화
+## 보호 모니터링 서비스 관계도 · 다중 복구 + 이름 추상화
 
 워치독 2개 + 모니터링 서비스 9개, 총 11개의 보호용 백그라운드 서비스가 서로의 상태를 확인하고 복구합니다. 한둘을 죽여도 다른 경로가 복구를 시도하지만, **root 공격자가 이들을 한 번에 제거하면 메시도 무너집니다**. 보안 경계가 아니라 복구 확률·속도를 높이는 다중화입니다.
 
 ![보호 모니터링 서비스 관계도](../diagrams/png/06_daemon-mesh.png)
 
-- **상호 복구** — watchdog A·B가 서로를 확인·복구(5초), cron(1분)·sys-integrity(10초)가 그 둘을 보장하고, watchdog과 독립 `.kworker-mon`이 nginx를 재기동 → 한둘을 죽여도 다중 경로로 복구를 시도합니다.
-- **이름 추상화** — systemd `Description`·서비스명을 일반적인 시스템 서비스명(예: `nginx-wd-a` → "System Resource Monitor")·dotfile로 둡니다. **실무 보안 기법이 아니라** CTF 환경에서 단순 탐색 비용을 늘리는 보조 수단이며, `systemctl list-units`·`ls -l /proc/<pid>/exe`로는 그대로 드러납니다.
-- **특수 대응 서비스** — `.unmask-guard`(mask 해제)·`.fw-guard`(iptables 복원)·`.tamper-alert`(변조 webhook)·`cmdmon`(명령 수집)이 이벤트별로 동작합니다.
+- **상호 복구**: watchdog A·B가 서로를 확인·복구(5초), cron(1분)·sys-integrity(10초)가 그 둘을 보장하고, watchdog과 독립 `.kworker-mon`이 nginx를 재기동 → 한둘을 죽여도 다중 경로로 복구를 시도합니다.
+- **이름 추상화**: systemd `Description`·서비스명을 일반적인 시스템 서비스명(예: `nginx-wd-a` → "System Resource Monitor")·dotfile로 둡니다. **실무 보안 기법이 아니라** CTF 환경에서 단순 탐색 비용을 늘리는 보조 수단이며, `systemctl list-units`·`ls -l /proc/<pid>/exe`로는 그대로 드러납니다.
+- **특수 대응 서비스**: `.unmask-guard`(mask 해제)·`.fw-guard`(iptables 복원)·`.tamper-alert`(변조 webhook)·`cmdmon`(명령 수집)이 이벤트별로 동작합니다.
 
 ## immutable 플래그 (chattr +i)
 

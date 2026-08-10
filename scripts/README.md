@@ -1,4 +1,4 @@
-# scripts/ — 방어 스택 구성요소
+# scripts/ · 방어 스택 구성요소
 
 > **NginX 살려라 A/D CTF · 교육용·방어 전용.** 모든 자동복구·모니터링 기법은
 > 권한이 부여된 경기 박스 안에서 우리 팀 nginx 가용성을 유지하기 위한 것입니다.
@@ -29,7 +29,7 @@ scripts/
 
 **`chattr +i`:** `index.html` · `nginx.conf` · `sites-available/default` · nginx 바이너리에 immutable. **root를 막는 게 아니라**(root는 `chattr -i`로 푼다) 우발·비root·단순 변조 방지와 공격 지연용입니다.
 
-## 서비스명 추상화 — systemd 서비스 이름
+## 서비스명 추상화 · systemd 서비스 이름
 
 방어 서비스의 `Description=`·서비스명을 일반적인 모니터처럼 추상화해 **단순 탐색 비용을 늘립니다.** 이는 **실무 보안 기법이 아니며 보안 경계도 아닙니다**. `systemctl list-units`·`ls -l /proc/<pid>/exe`로는 그대로 드러납니다.
 
@@ -50,13 +50,13 @@ scripts/
 
 ## cron · audit · config
 
-- **`cron/root.crontab`** — systemd와 독립된 1분 복구 라인 + 핵심 서비스 부활. (파일 상단 주석 참고)
-- **`audit/attacker.rules`** — `auid>=1000`(사람)의 `execve`만 기록 → `cmd-collect.sh`가 파싱. 이 필터가 빠지면 데몬 명령 노이즈에 묻힙니다. 룰 끝에 **`-e 2`** 로 불변화해 root의 `auditctl -D` 삭제는 막았습니다. 단, **root 직접 로그인(auid=0)은 누락**되고 auditd 데몬 자체의 stop은 여전히 가능합니다.
-- **`config/nginx-site-default.conf`** — nginx 기본 사이트 설정. `config/ip_names.example` — IP↔이름 매핑 형식 예시(실파일은 비공개).
+- **`cron/root.crontab`**: systemd와 독립된 1분 복구 라인 + 핵심 서비스 부활. (파일 상단 주석 참고)
+- **`audit/attacker.rules`**: `auid>=1000`(사람)의 `execve`만 기록 → `cmd-collect.sh`가 파싱. 이 필터가 빠지면 데몬 명령 노이즈에 묻힙니다. 룰 끝에 **`-e 2`** 로 불변화해 root의 `auditctl -D` 삭제는 막았습니다. 단, **root 직접 로그인(auid=0)은 누락**되고 auditd 데몬 자체의 stop은 여전히 가능합니다.
+- **`config/nginx-site-default.conf`**: nginx 기본 사이트 설정. `config/ip_names.example` · IP↔이름 매핑 형식 예시(실파일은 비공개).
 
 ## 배포 메모
 
 - `bin/*` → `/usr/local/bin/` (일부는 dotfile: `.kworker-mon.sh`, `.fw-guard.sh`, `.healthz-checker.sh`, `.tamper-alert.sh`, `.unmask-guard.sh`, `.kworker-guard.sh`)
 - `systemd/*` → `/etc/systemd/system/` · `audit/attacker.rules` → `/etc/audit/rules.d/`
-- `cmd-collect.sh`는 **gawk** 필요(mawk 비호환). `cmds.json`·`sysmon.json`은 **데모용 웹루트 노출** — 실무에서는 인증 뒤에 두거나 외부 수집기로.
-- 실제 `ip_names`는 개인정보라 저장소에서 제외 — `config/ip_names.example` 형식만 참고
+- `cmd-collect.sh`는 **gawk** 필요(mawk 비호환). `cmds.json`·`sysmon.json`은 **데모용 웹루트 노출** · 실무에서는 인증 뒤에 두거나 외부 수집기로.
+- 실제 `ip_names`는 개인정보라 저장소에서 제외 · `config/ip_names.example` 형식만 참고
