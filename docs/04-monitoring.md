@@ -39,7 +39,7 @@ auditd가 공격자 명령을 잡고 → `cmd-collect`가 파싱 → 대시보�
 - 상태 전이(다운→복구) 순간에만 AdaptiveCard 발사(KST, 복구 소요시간)
 
 ```bash
-# nginx-status-alert.sh — 상태가 바뀌는 순간에만 webhook POST
+# nginx-status-alert.sh: 상태가 바뀌는 순간에만 webhook POST
 curl -s -m 5 -X POST "$WEBHOOK" -H "Content-Type: application/json" -d @- << JSON ...
 ```
 

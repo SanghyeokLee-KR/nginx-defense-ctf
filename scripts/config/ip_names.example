@@ -1,4 +1,4 @@
-# /etc/nginx-defense/ip_names — 팀원 IP↔이름 매핑 (예시)
+# /etc/nginx-defense/ip_names: 팀원 IP↔이름 매핑 (예시)
 # 실제 파일은 개인정보라 레포 제외. 형식만 참고.
 1.2.3.4=TeamMember-A
 5.6.7.8=TeamMember-B

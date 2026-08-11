@@ -11,10 +11,10 @@
         <mxCell id="3" parent="2" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="782" width="1070" as="geometry" />
         </mxCell>
-        <mxCell id="4" parent="2" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 방어 — 1차 공격: 자동복구 무력화 시도" vertex="1">
+        <mxCell id="4" parent="2" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 방어: 1차 공격: 자동복구 무력화 시도" vertex="1">
           <mxGeometry height="32" width="980" x="39.99999999999994" y="32" as="geometry" />
         </mxCell>
-        <mxCell id="5" parent="2" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="~00:03 KST · 교수님(X.X.X.X)이 watchdog 스크립트와 nginx를 동시에 죽이고 .ssh·docker 정찰 — 다층 복구로 1분 내 무위" vertex="1">
+        <mxCell id="5" parent="2" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="~00:03 KST · 교수님(X.X.X.X)이 watchdog 스크립트와 nginx를 동시에 죽이고 .ssh·docker 정찰: 다층 복구로 1분 내 무위" vertex="1">
           <mxGeometry height="20" width="1000" x="39.99999999999994" y="66" as="geometry" />
         </mxCell>
         <mxCell id="6" parent="2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C0392B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.user;" value="교수님 / 어태커&#xa;X.X.X.X" vertex="1">
@@ -71,7 +71,7 @@
             <mxPoint x="520" y="440" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="17" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=11;align=center;verticalAlign=middle;" value=".ssh 키 노출 없음 · 방어 데몬·immutable 무탐지 — 시스템 클린 유지" vertex="1">
+        <mxCell id="17" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=11;align=center;verticalAlign=middle;" value=".ssh 키 노출 없음 · 방어 데몬·immutable 무탐지: 시스템 클린 유지" vertex="1">
           <mxGeometry height="40" width="320" x="360" y="468" as="geometry" />
         </mxCell>
         <mxCell id="18" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#5F5E5A;strokeWidth=2;fontColor=#2C2C2A;fontSize=11;" value="GET / (가용성 채점)">
@@ -80,16 +80,16 @@
             <mxPoint x="520" y="548" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="19" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;" value="200 OK — 복구가 빨라 체감 다운 거의 없음">
+        <mxCell id="19" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;" value="200 OK: 복구가 빨라 체감 다운 거의 없음">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="520" y="593" as="sourcePoint" />
             <mxPoint x="900" y="593" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="20" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;" value="결과: 어태커가 복구 메커니즘(watchdog)부터 끊었으나, 다층 부활(Restart=always + cron 1분)이 1분 내 재기동 — 정찰도 소득 없이 가용성 유지." vertex="1">
+        <mxCell id="20" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;" value="결과: 어태커가 복구 메커니즘(watchdog)부터 끊었으나, 다층 부활(Restart=always + cron 1분)이 1분 내 재기동: 정찰도 소득 없이 가용성 유지." vertex="1">
           <mxGeometry height="42" width="1000" x="39.99999999999994" y="656" as="geometry" />
         </mxCell>
-        <mxCell id="21" parent="2" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례 — 빨강 실선: 공격 명령 · 빨강 점선: 정찰 · 회색 점선: 관찰 결과 · 회색: 채점 요청 · 파랑: 정상 응답 · 청록: 방어/복구" vertex="1">
+        <mxCell id="21" parent="2" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례: 빨강 실선: 공격 명령 · 빨강 점선: 정찰 · 회색 점선: 관찰 결과 · 회색: 채점 요청 · 파랑: 정상 응답 · 청록: 방어/복구" vertex="1">
           <mxGeometry height="20" width="1000" x="39.99999999999994" y="708" as="geometry" />
         </mxCell>
       </root>

@@ -4,10 +4,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="t" parent="1" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#232F3E;" value="보호 모니터링 서비스 관계도 — 다중 복구 + 이름 추상화 (Protective Monitors)" vertex="1">
+        <mxCell id="t" parent="1" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#232F3E;" value="보호 모니터링 서비스 관계도: 다중 복구 + 이름 추상화 (Protective Monitors)" vertex="1">
           <mxGeometry height="30" width="1000" x="40" y="22" as="geometry" />
         </mxCell>
-        <mxCell id="st" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#5A6B73;" value="9개 보호 모니터링 서비스가 서로를 확인·복구한다(왼쪽). 서비스명은 일반 시스템 서비스명으로 추상화했다.&#10;오른쪽은 공격자 셸 모습 — 죽여도 5초 뒤 복구되지만, systemctl list-units·ls -la 엔 그대로 보인다(보안 경계가 아니라 탐색 지연)." vertex="1">
+        <mxCell id="st" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#5A6B73;" value="9개 보호 모니터링 서비스가 서로를 확인·복구한다(왼쪽). 서비스명은 일반 시스템 서비스명으로 추상화했다.&#10;오른쪽은 공격자 셸 모습: 죽여도 5초 뒤 복구되지만, systemctl list-units·ls -la 엔 그대로 보인다(보안 경계가 아니라 탐색 지연)." vertex="1">
           <mxGeometry height="36" width="840" x="40" y="50" as="geometry" />
         </mxCell>
         <mxCell id="ec2host" parent="1" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=#FBFCFD;strokeColor=#7D8B94;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=50;spacingTop=12;fontSize=12;fontColor=#46555E;fontStyle=1;" value="EC2 #1 · nginx-01  (ap-northeast-2c)" vertex="1">
@@ -37,7 +37,7 @@
         <mxCell id="cmd" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C9D2DA;fontSize=11;align=left;spacingLeft=12;verticalAlign=middle;" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#5A6B73&quot;&gt;cmdmon&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#6B7785&quot;&gt;auditd 명령 수집 (auid≥1000)&lt;/font&gt;" vertex="1">
           <mxGeometry height="58" width="238" x="566" y="300" as="geometry" />
         </mxCell>
-        <mxCell id="ngx" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1D8102;strokeWidth=2;fontSize=12;align=left;spacingLeft=14;verticalAlign=middle;" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#1B5E20&quot;&gt;nginx :80&lt;/font&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#6B7785&quot;&gt;— 보호 대상&lt;/font&gt;" vertex="1">
+        <mxCell id="ngx" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1D8102;strokeWidth=2;fontSize=12;align=left;spacingLeft=14;verticalAlign=middle;" value="&lt;b&gt;&lt;font face=&quot;Courier New&quot; color=&quot;#1B5E20&quot;&gt;nginx :80&lt;/font&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#6B7785&quot;&gt;· 보호 대상&lt;/font&gt;" vertex="1">
           <mxGeometry height="58" width="268" x="372" y="470" as="geometry" />
         </mxCell>
         <mxCell id="e_cron" parent="1" value="부활" style="endArrow=block;html=1;rounded=0;strokeColor=#1D8102;strokeWidth=2;fontColor=#1B5E20;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="cron" target="wda">
@@ -55,7 +55,7 @@
         <mxCell id="e_kn" parent="1" value="독립 재기동" style="endArrow=block;html=1;rounded=0;strokeColor=#00838F;strokeWidth=2;fontColor=#0A3A40;fontSize=10;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" source="kw" target="ngx">
           <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="169" y="442" /></Array></mxGeometry>
         </mxCell>
-        <mxCell id="termbar" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#2D2D3A;strokeColor=#2D2D3A;verticalAlign=middle;align=left;spacingLeft=86;fontSize=11;fontColor=#C8C8D0;fontFamily=Courier New;" value="root@nginx-01: ~ — bash" vertex="1">
+        <mxCell id="termbar" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=#2D2D3A;strokeColor=#2D2D3A;verticalAlign=middle;align=left;spacingLeft=86;fontSize=11;fontColor=#C8C8D0;fontFamily=Courier New;" value="root@nginx-01: ~ · bash" vertex="1">
           <mxGeometry height="32" width="580" x="900" y="104" as="geometry" />
         </mxCell>
         <mxCell id="dot1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FF5F56;strokeColor=none;" value="" vertex="1">
@@ -73,7 +73,7 @@
         <mxCell id="termtext" parent="1" style="text;html=1;align=left;verticalAlign=top;fontFamily=Courier New;fontSize=12;fontColor=#D4D4D4;spacingLeft=8;spacingTop=6;whiteSpace=wrap;" value="&lt;font color=&quot;#4EC9B0&quot;&gt;root@nginx-01:~#&lt;/font&gt; &lt;font color=&quot;#DCDCAA&quot;&gt;systemctl status nginx-wd-a&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#9CDCFE&quot;&gt;&amp;nbsp;&amp;nbsp;nginx-wd-a.service&lt;/font&gt; &lt;font color=&quot;#CE9178&quot;&gt;&quot;System Resource Monitor A&quot;&lt;/font&gt; &lt;font color=&quot;#F48771&quot;&gt;← 실제: watchdog A&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#6A7A6A&quot;&gt;&amp;nbsp;&amp;nbsp;Active: active (running)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#4EC9B0&quot;&gt;root@nginx-01:~#&lt;/font&gt; &lt;font color=&quot;#DCDCAA&quot;&gt;ps aux | grep kworker&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#D4D4D4&quot;&gt;&amp;nbsp;&amp;nbsp;root 2103 [kworker/2:1]&lt;/font&gt; &lt;font color=&quot;#F48771&quot;&gt;← 실제: .kworker-mon (커널스레드와 유사 명명)&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#4EC9B0&quot;&gt;root@nginx-01:~#&lt;/font&gt; &lt;font color=&quot;#DCDCAA&quot;&gt;ls /usr/local/bin | grep guard&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#808080&quot;&gt;&amp;nbsp;&amp;nbsp;(출력 없음)&lt;/font&gt; &lt;font color=&quot;#F48771&quot;&gt;← .unmask-guard · .fw-guard = 점 파일, ls 에 안 보임&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#4EC9B0&quot;&gt;root@nginx-01:~#&lt;/font&gt; &lt;font color=&quot;#DCDCAA&quot;&gt;systemctl stop nginx-wd-a ; systemctl mask nginx&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#6A9955&quot;&gt;# 5초 후 → watchdog B가 A 부활 · unmask-guard가 nginx unmask&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#6A9955&quot;&gt;# 단순 grep/ls 는 지연되지만 systemctl list-units · ls -la 엔 그대로 보임&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#4EC9B0&quot;&gt;root@nginx-01:~#&lt;/font&gt; &lt;font color=&quot;#DCDCAA&quot;&gt;crontab -l | grep wd&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#D4D4D4&quot;&gt;&amp;nbsp;&amp;nbsp;* * * * * pgrep nginx-wd-a || nohup nginx-wd-a&lt;/font&gt; &lt;font color=&quot;#F48771&quot;&gt;← 1분 백업 부활&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#4EC9B0&quot;&gt;root@nginx-01:~#&lt;/font&gt; &lt;font color=&quot;#AEAFAD&quot;&gt;▋&lt;/font&gt;" vertex="1">
           <mxGeometry height="430" width="560" x="914" y="146" as="geometry" />
         </mxCell>
-        <mxCell id="lg" parent="1" style="text;html=1;align=left;fontSize=10;fontColor=#5F5E5A;" value="범례 — 보라 watchdog · 청록 무결성 보장 · 초록 cron · 시안 독립 데몬(systemd 밖) · 양방향 화살표 = 상호 부활 · 점선 카드 = systemd 밖에서 동작" vertex="1">
+        <mxCell id="lg" parent="1" style="text;html=1;align=left;fontSize=10;fontColor=#5F5E5A;" value="범례: 보라 watchdog · 청록 무결성 보장 · 초록 cron · 시안 독립 데몬(systemd 밖) · 양방향 화살표 = 상호 부활 · 점선 카드 = systemd 밖에서 동작" vertex="1">
           <mxGeometry height="18" width="1300" x="40" y="596" as="geometry" />
         </mxCell>
       </root>

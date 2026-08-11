@@ -11,10 +11,10 @@
         <mxCell id="3" parent="2" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="810" width="1110" as="geometry" />
         </mxCell>
-        <mxCell id="4" parent="2" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 방어 — 3차 공격: 부활 경로 차단(mask) 시도" vertex="1">
+        <mxCell id="4" parent="2" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 방어: 3차 공격: 부활 경로 차단(mask) 시도" vertex="1">
           <mxGeometry height="32" width="1020" x="49.99571428571471" y="18" as="geometry" />
         </mxCell>
-        <mxCell id="5" parent="2" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="신규 IP X.X.X.X · 방어 스크립트 정찰 후 systemctl mask로 자동복구의 start 경로 자체를 차단 시도 — 워치독 restart 경로가 자력 복원" vertex="1">
+        <mxCell id="5" parent="2" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="신규 IP X.X.X.X · 방어 스크립트 정찰 후 systemctl mask로 자동복구의 start 경로 자체를 차단 시도: 워치독 restart 경로가 자력 복원" vertex="1">
           <mxGeometry height="20" width="1050" x="49.99571428571471" y="52" as="geometry" />
         </mxCell>
         <mxCell id="6" parent="2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C0392B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.user;" value="교수님 / 어태커&#xa;X.X.X.X (신규 IP)" vertex="1">
@@ -80,7 +80,7 @@
             <mxPoint x="539.9957142857147" y="534" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="19" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;" value="200 OK + /healthz healthy — 가용성 유지">
+        <mxCell id="19" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;" value="200 OK + /healthz healthy: 가용성 유지">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="539.9957142857147" y="579" as="sourcePoint" />
             <mxPoint x="949.9957142857147" y="579" as="targetPoint" />
@@ -89,10 +89,10 @@
         <mxCell id="20" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#854F0B;fontColor=#633806;fontSize=11;align=center;verticalAlign=middle;" value="실전 검증: 의도적으로 mask 재현 → 12초 내 active + enabled + 200 자동 복귀 확인 (보강 불필요)" vertex="1">
           <mxGeometry height="40" width="560" x="259.9957142857147" y="600" as="geometry" />
         </mxCell>
-        <mxCell id="21" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;" value="결과: 1·2차의 stop·kill·80 하이재킹에 이어 mask로 부활 경로 자체를 차단한 가장 정교한 시도였으나, 워치독의 restart 복구 경로가 mask를 자력 우회·복원 — 다운타임 0으로 3차도 무위." vertex="1">
+        <mxCell id="21" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;" value="결과: 1·2차의 stop·kill·80 하이재킹에 이어 mask로 부활 경로 자체를 차단한 가장 정교한 시도였으나, 워치독의 restart 복구 경로가 mask를 자력 우회·복원: 다운타임 0으로 3차도 무위." vertex="1">
           <mxGeometry height="50" width="1020" x="49.99571428571471" y="694" as="geometry" />
         </mxCell>
-        <mxCell id="22" parent="2" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례 — 빨강 점선: 정찰/분석 · 빨강 실선: 공격 명령 · 빨강 박스: 공격 효과 · 청록: 방어/복구 · 앰버: 실전 검증 · 회색: 채점 요청 · 파랑: 정상 응답" vertex="1">
+        <mxCell id="22" parent="2" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례: 빨강 점선: 정찰/분석 · 빨강 실선: 공격 명령 · 빨강 박스: 공격 효과 · 청록: 방어/복구 · 앰버: 실전 검증 · 회색: 채점 요청 · 파랑: 정상 응답" vertex="1">
           <mxGeometry height="20" width="1020" x="49.99571428571471" y="754" as="geometry" />
         </mxCell>
       </root>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# nginx-watchdog.sh — nginx 가용성 워치독 (A/B 상호 복구)
+# nginx-watchdog.sh: nginx 가용성 워치독 (A/B 상호 복구)
 #
 #   역할 : 5중 복구의 2계층. '프로세스 생존'이 아니라 '응답 본문(h1)'으로
 #          판정해, 살아있지만 페이지가 오염·응답불가인 경우까지 잡는다.
@@ -15,7 +15,7 @@
 #   그 복구 대상 상황)에도 절대 죽으면 안 된다.
 #
 #   판정 기준(NEEDLE)은 healthz-checker.sh·nginx-cron-guard.sh 와 동일하게
-#   '<h1>NginX를 살려라</h1>' 로 통일한다 — 데몬마다 '정상' 정의가 갈리면
+#   '<h1>NginX를 살려라</h1>' 로 통일한다. 데몬마다 '정상' 정의가 갈리면
 #   한쪽은 격리시키고 한쪽은 정상으로 보는 분열이 생긴다.
 
 NEEDLE='<h1>NginX를 살려라</h1>'
@@ -25,7 +25,7 @@ SELF="${1:-}"; PEER="${2:-}"
 # nginx가 기대한 페이지를 실제로 서빙 중인가 (응답 본문으로 판정)
 http_ok() { curl -s -m 3 http://127.0.0.1:80/ 2>/dev/null | grep -qF "$NEEDLE"; }
 
-# 복구 임계구역 직렬화 — watchdog A·B·cron이 동시에 restart 하면 충돌하므로
+# 복구 임계구역 직렬화: watchdog A·B·cron이 동시에 restart 하면 충돌하므로
 # flock 으로 한 번에 하나만 재기동하게 한다(최대 5초 대기 후 양보).
 recover_nginx() {
   flock -w 5 /run/nginx-defense.lock \

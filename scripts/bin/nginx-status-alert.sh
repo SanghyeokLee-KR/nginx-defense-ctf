@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# nginx-status-alert.sh — nginx 다운/복구 Teams 알림
+# nginx-status-alert.sh: nginx 다운/복구 Teams 알림
 #
 #   역할 : 2초마다 본문을 확인해 상태가 바뀌는 순간(다운/복구)에만 Power
 #          Automate webhook으로 Teams 'NGINX 모니터링방'에 AdaptiveCard 발사.

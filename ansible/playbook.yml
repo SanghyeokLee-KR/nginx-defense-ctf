@@ -1,5 +1,5 @@
 ---
-# playbook.yml — NginX 살려라 방어 스택 배포 (교육용·방어 전용)
+# playbook.yml: NginX 살려라 방어 스택 배포 (교육용·방어 전용)
 #
 #   수작업 cp 로 배포하던 스크립트·systemd 유닛·cron·auditd 룰을 IaC로 코드화해
 #   "재현 가능한 배포"를 제공한다. 같은 결과를 멱등(idempotent)하게 보장.
@@ -8,7 +8,7 @@
 #
 #   주의: 실서비스라면 인스턴스 내부 배포보다 ASG 교체형이 적절하다(README 한계 참고).
 #         /etc/nginx-defense/ 의 실제 값(index.html·ip_names·webhook)은 환경/개인정보라
-#         별도 제공한다 — 아래 'config' 태스크는 예시 구조만 배치한다.
+#         별도 제공한다. 아래 'config' 태스크는 예시 구조만 배치한다.
 
 - name: Deploy nginx-defense stack
   hosts: nginx_defense
@@ -16,7 +16,7 @@
 
   vars:
     repo_scripts: "{{ playbook_dir }}/../scripts"
-    # 점파일로 배치하는 스크립트 — 단순 탐색 비용을 늘리는 보조 수단(보안 경계 아님).
+    # 점파일로 배치하는 스크립트: 단순 탐색 비용을 늘리는 보조 수단(보안 경계 아님).
     # 저장소엔 일반 이름으로 두고, 배포 시 '.name.sh' 로 떨어뜨린다.
     hidden_scripts:
       - kworker-mon
@@ -66,7 +66,7 @@
         - "{{ repo_scripts }}/bin/*.sh"
       when: (item | basename | splitext | first) not in hidden_scripts
 
-    - name: 점파일 스크립트 배치 (.name.sh — 보안 경계 아님)
+    - name: 점파일 스크립트 배치 (.name.sh · 보안 경계 아님)
       ansible.builtin.copy:
         src: "{{ repo_scripts }}/bin/{{ item }}.sh"
         dest: "/usr/local/bin/.{{ item }}.sh"

@@ -1,17 +1,17 @@
-# attacker.rules — auditd 룰  (/etc/audit/rules.d/attacker.rules)
+# attacker.rules: auditd 룰  (/etc/audit/rules.d/attacker.rules)
 #
 #   '사람이 친 명령'만 기록한다: auid>=1000(로그인 사용자) AND auid!=unset(4294967295).
 #   execve(64/32비트)를 attacker_cmd 키로 남기고 → cmd-collect.sh가 tail+awk로 파싱.
 #
 #   ※ auid>=1000 필터가 핵심. 이게 빠지면 데몬(시스템) 명령까지 전부 잡혀
-#     로그가 노이즈에 묻힌다 — 실제로 "명령 로그 0개" 버그의 원인이었던 부분.
+#     로그가 노이즈에 묻힌다. 실제로 "명령 로그 0개" 버그의 원인이었던 부분.
 #
 #   적용: auditctl -R attacker.rules  (또는 rules.d/에 두고 augenrules --load)
 #   교육용·방어 전용.
 -a exit,always -F arch=b64 -S execve -F auid>=1000 -F auid!=4294967295 -k attacker_cmd
 -a exit,always -F arch=b32 -S execve -F auid>=1000 -F auid!=4294967295 -k attacker_cmd
 
-# 룰 불변화 — 로드 후 root도 `auditctl -D` / `-e 0` 로 룰을 끄거나 지울 수 없게 잠근다
+# 룰 불변화: 로드 후 root도 `auditctl -D` / `-e 0` 로 룰을 끄거나 지울 수 없게 잠근다
 # (재부팅 전까지). 반드시 마지막 라인. 이후 룰 변경도 막히는 트레이드오프가 있다.
-# (단, auditd 데몬 자체의 stop은 별개 — 데몬을 멈추면 디스크 기록은 끊긴다.)
+# (단, auditd 데몬 자체의 stop은 별개: 데몬을 멈추면 디스크 기록은 끊긴다.)
 -e 2

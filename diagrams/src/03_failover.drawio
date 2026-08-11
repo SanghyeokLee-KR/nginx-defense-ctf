@@ -4,19 +4,19 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="t" parent="1" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="헬스체크 자가격리 (Fail-Open) — 오염되면 스스로 채점망에서 빠진다" vertex="1">
+        <mxCell id="t" parent="1" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="헬스체크 자가격리 (Fail-Open): 오염되면 스스로 채점망에서 빠진다" vertex="1">
           <mxGeometry height="32" width="1050" x="50" y="28" as="geometry" />
         </mxCell>
         <mxCell id="st" parent="1" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="#1 healthz-checker가 2초마다 nginx 본문 검사 → 정상이면 ok 유지(200) · 오염이면 rm ok(503). 503이면 NLB가 #1을 빼고 #2/#3로 우회 → 오염 페이지가 채점봇에 노출되지 않는다." vertex="1">
           <mxGeometry height="20" width="1080" x="50" y="64" as="geometry" />
         </mxCell>
-        <mxCell id="b1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF5E9;strokeColor=none;align=left;spacingLeft=12;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#1B660F;" value="정상 — 평상시 (steady state)" vertex="1">
+        <mxCell id="b1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF5E9;strokeColor=none;align=left;spacingLeft=12;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#1B660F;" value="정상: 평상시 (steady state)" vertex="1">
           <mxGeometry height="22" width="1080" x="50" y="214" as="geometry" />
         </mxCell>
         <mxCell id="b2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBEEDC;strokeColor=none;align=left;spacingLeft=12;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#B86E00;" value="오염 → 자가격리 (self-isolation)" vertex="1">
           <mxGeometry height="22" width="1080" x="50" y="350" as="geometry" />
         </mxCell>
-        <mxCell id="b3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=none;align=left;spacingLeft=12;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#15366B;" value="복구 — 자동 재포함" vertex="1">
+        <mxCell id="b3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF1FB;strokeColor=none;align=left;spacingLeft=12;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#15366B;" value="복구: 자동 재포함" vertex="1">
           <mxGeometry height="22" width="1080" x="50" y="668" as="geometry" />
         </mxCell>
         <mxCell id="ll1" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#B4B2A9;strokeWidth=1;">
@@ -49,7 +49,7 @@
         <mxCell id="mp1" edge="1" parent="1" value="200 OK · #1 정상 응답" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;">
           <mxGeometry relative="1" as="geometry"><mxPoint x="719" y="316" as="sourcePoint" /><mxPoint x="139" y="316" as="targetPoint" /></mxGeometry>
         </mxCell>
-        <mxCell id="boxbad" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#C0392B;fontColor=#922B21;fontSize=11;align=center;verticalAlign=middle;fontStyle=1;" value="nginx 본문 오염 — 변조 / 응답 이상" vertex="1">
+        <mxCell id="boxbad" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FADBD8;strokeColor=#C0392B;fontColor=#922B21;fontSize=11;align=center;verticalAlign=middle;fontStyle=1;" value="nginx 본문 오염: 변조 / 응답 이상" vertex="1">
           <mxGeometry height="32" width="260" x="589" y="382" as="geometry" />
         </mxCell>
         <mxCell id="box2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=11;align=center;verticalAlign=middle;" value="healthz-checker: 이상 감지 → rm ok → /healthz 503" vertex="1">
@@ -67,10 +67,10 @@
         <mxCell id="m5" edge="1" parent="1" value="GET / (가용성 채점)" style="endArrow=block;html=1;rounded=0;strokeColor=#5F5E5A;strokeWidth=2;fontColor=#2C2C2A;fontSize=11;">
           <mxGeometry relative="1" as="geometry"><mxPoint x="139" y="588" as="sourcePoint" /><mxPoint x="439" y="588" as="targetPoint" /></mxGeometry>
         </mxCell>
-        <mxCell id="m6" edge="1" parent="1" value="route — #1 제외, #2/#3로" style="endArrow=block;html=1;rounded=0;strokeColor=#5F5E5A;strokeWidth=2;fontColor=#2C2C2A;fontSize=11;">
+        <mxCell id="m6" edge="1" parent="1" value="route: #1 제외, #2/#3로" style="endArrow=block;html=1;rounded=0;strokeColor=#5F5E5A;strokeWidth=2;fontColor=#2C2C2A;fontSize=11;">
           <mxGeometry relative="1" as="geometry"><mxPoint x="439" y="612" as="sourcePoint" /><mxPoint x="999" y="612" as="targetPoint" /></mxGeometry>
         </mxCell>
-        <mxCell id="m7" edge="1" parent="1" value="200 OK — 무중단 (오염 페이지 미노출)" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;">
+        <mxCell id="m7" edge="1" parent="1" value="200 OK: 무중단 (오염 페이지 미노출)" style="endArrow=block;html=1;rounded=0;strokeColor=#185FA5;strokeWidth=2;fontColor=#0C447C;fontSize=11;">
           <mxGeometry relative="1" as="geometry"><mxPoint x="999" y="640" as="sourcePoint" /><mxPoint x="139" y="640" as="targetPoint" /></mxGeometry>
         </mxCell>
         <mxCell id="box3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=11;align=center;verticalAlign=middle;" value="본문 복원 → ok 재생성 → /healthz 200" vertex="1">
@@ -79,13 +79,13 @@
         <mxCell id="m8" edge="1" parent="1" value="헬스체크 200 → healthy → #1 재포함" style="endArrow=block;html=1;rounded=0;strokeColor=#0F6E56;strokeWidth=2;fontColor=#04342C;fontSize=11;">
           <mxGeometry relative="1" as="geometry"><mxPoint x="439" y="752" as="sourcePoint" /><mxPoint x="719" y="752" as="targetPoint" /></mxGeometry>
         </mxCell>
-        <mxCell id="res" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;fontStyle=1;" value="결과 — #1이 오염돼도 스스로 503으로 빠지고 NLB가 #2/#3로 우회 → 오염된 페이지가 채점봇에 절대 노출되지 않음 · 다운타임 0." vertex="1">
+        <mxCell id="res" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;fontStyle=1;" value="결과: #1이 오염돼도 스스로 503으로 빠지고 NLB가 #2/#3로 우회 → 오염된 페이지가 채점봇에 절대 노출되지 않음 · 다운타임 0." vertex="1">
           <mxGeometry height="40" width="1080" x="50" y="788" as="geometry" />
         </mxCell>
-        <mxCell id="call" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#D6B656;fontColor=#5A4A00;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" value="ok 파일은 일부러 immutable로 잠그지 않음 — 잠그면 오염된 페이지가 계속 200을 반환해 채점봇에 노출(자폭). &quot;오염되면 빠진다&quot;가 &quot;오염된 채 버틴다&quot;보다 점수에 유리." vertex="1">
+        <mxCell id="call" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#D6B656;fontColor=#5A4A00;fontSize=11;align=left;spacingLeft=14;verticalAlign=middle;" value="ok 파일은 일부러 immutable로 잠그지 않음: 잠그면 오염된 페이지가 계속 200을 반환해 채점봇에 노출(자폭). &quot;오염되면 빠진다&quot;가 &quot;오염된 채 버틴다&quot;보다 점수에 유리." vertex="1">
           <mxGeometry height="38" width="1080" x="50" y="836" as="geometry" />
         </mxCell>
-        <mxCell id="lg" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례 — 회색: 채점 요청·관찰 · 파랑: 정상 응답(200) · 청록: 헬스체크·복구 동작 · 앰버: 503·격리 · 빨강: 오염 상태" vertex="1">
+        <mxCell id="lg" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례: 회색: 채점 요청·관찰 · 파랑: 정상 응답(200) · 청록: 헬스체크·복구 동작 · 앰버: 503·격리 · 빨강: 오염 상태" vertex="1">
           <mxGeometry height="20" width="1080" x="50" y="884" as="geometry" />
         </mxCell>
       </root>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# nginx-heartbeat.sh — 정기 생존보고 (5분)
+# nginx-heartbeat.sh: 정기 생존보고 (5분)
 #
 #   역할 : systemd timer가 5분마다 호출. 로컬 nginx + 백엔드 3대 + NLB + 워치독
 #          상태를 한 번에 점검해 Teams 'NGINX 모니터링방'(sig=9Ck)으로 종합 보고.

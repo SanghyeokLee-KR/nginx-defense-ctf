@@ -4,10 +4,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="t" parent="1" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#232F3E;" value="네트워크·보안그룹 — 포트 레벨 접근 제어 (Security Group)" vertex="1">
+        <mxCell id="t" parent="1" style="text;html=1;align=left;fontSize=20;fontStyle=1;fontColor=#232F3E;" value="네트워크·보안그룹: 포트 레벨 접근 제어 (Security Group)" vertex="1">
           <mxGeometry height="30" width="1000" x="50" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="st" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#5A6B73;" value="공격자는 root 권한이 있어도 #1에만 SSH 가능 — #2/#3은 SSH(22) 차단 + NLB에서만 :80 수신. tg-ssh(#1만 등록) + 보안그룹(#2/#3 22 차단) 이중 차단으로 공격 표면이 #1 하나로 한정된다." vertex="1">
+        <mxCell id="st" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#5A6B73;" value="공격자는 root 권한이 있어도 #1에만 SSH 가능: #2/#3은 SSH(22) 차단 + NLB에서만 :80 수신. tg-ssh(#1만 등록) + 보안그룹(#2/#3 22 차단) 이중 차단으로 공격 표면이 #1 하나로 한정된다." vertex="1">
           <mxGeometry height="20" width="1240" x="50" y="58" as="geometry" />
         </mxCell>
         <mxCell id="atk" parent="1" style="sketch=0;outlineConnect=0;fontColor=#D13212;gradientColor=none;fillColor=#D13212;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.user;" value="어태커 (교수님)&#xa;SSH :22" vertex="1">
@@ -40,10 +40,10 @@
         <mxCell id="ec3" parent="1" style="sketch=0;points=[];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" value="#3 svc&#xa;AMI 클론" vertex="1">
           <mxGeometry height="66" width="66" x="636" y="540" as="geometry" />
         </mxCell>
-        <mxCell id="r2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A8CDA8;align=left;spacingLeft=14;verticalAlign=middle;fontSize=12;fontColor=#232F3E;" value="inbound 규칙&#xa;✓ TCP:80 (from NLB) &lt;b&gt;only&lt;/b&gt;&#xa;✗ TCP:22 (SSH) — 차단 (inbound 22 규칙 없음)" vertex="1">
+        <mxCell id="r2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A8CDA8;align=left;spacingLeft=14;verticalAlign=middle;fontSize=12;fontColor=#232F3E;" value="inbound 규칙&#xa;✓ TCP:80 (from NLB) &lt;b&gt;only&lt;/b&gt;&#xa;✗ TCP:22 (SSH): 차단 (inbound 22 규칙 없음)" vertex="1">
           <mxGeometry height="86" width="450" x="740" y="436" as="geometry" />
         </mxCell>
-        <mxCell id="call" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#D6B656;fontColor=#5A4A00;fontSize=12;align=left;spacingLeft=14;verticalAlign=middle;" value="이중 차단 — 어태커가 root여도 #2/#3엔 손댈 수 없음 :  ① NLB tg-ssh에 &lt;b&gt;#1만 등록&lt;/b&gt;  ·  ② 보안그룹에서 &lt;b&gt;#2/#3 inbound 22 차단&lt;/b&gt;. 공격 표면 = #1 하나로 한정." vertex="1">
+        <mxCell id="call" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#D6B656;fontColor=#5A4A00;fontSize=12;align=left;spacingLeft=14;verticalAlign=middle;" value="이중 차단: 어태커가 root여도 #2/#3엔 손댈 수 없음:  ① NLB tg-ssh에 &lt;b&gt;#1만 등록&lt;/b&gt;  ·  ② 보안그룹에서 &lt;b&gt;#2/#3 inbound 22 차단&lt;/b&gt;. 공격 표면 = #1 하나로 한정." vertex="1">
           <mxGeometry height="46" width="1090" x="200" y="752" as="geometry" />
         </mxCell>
         <mxCell id="a1" edge="1" parent="1" source="atk" style="endArrow=block;html=1;rounded=0;strokeColor=#D13212;strokeWidth=2;fontColor=#922B21;fontSize=11;fontStyle=1;exitX=1;exitY=0.4;entryX=0;entryY=0.3;" target="nlb" value=":22 SSH 시도">

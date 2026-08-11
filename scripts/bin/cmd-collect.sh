@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# cmd-collect.sh — 공격자 명령 수집기 (경량)
+# cmd-collect.sh: 공격자 명령 수집기 (경량)
 #
 #   역할 : 1초마다 auditd 로그(execve, auid=1000=사람 명령)를 파싱해 대시보드용
 #          cmds.json을 생성. pts→SSH IP 매핑으로 '누가' 친 명령인지까지 표시.
@@ -12,7 +12,7 @@
 #   · 의존성: gawk. 3-인자 match($0,/re/,arr) 는 gawk 전용 문법으로, 우분투
 #     기본 awk(mawk) 환경에서는 동작하지 않는다. 배포 시 gawk 필요(apt install gawk).
 #   · cmds.json 은 대시보드 데모용으로 웹루트에 노출된다. 실무에서는 감시 결과를
-#     공개 웹루트에 두면 안 된다 — 별도 포트+인증 뒤에 두거나 외부 수집기로 보낼 것.
+#     공개 웹루트에 두면 안 된다. 별도 포트+인증 뒤에 두거나 외부 수집기로 보낼 것.
 #   · audit.log 는 감시 대상 박스 위에 있어 root 공격자가 정지/삭제할 수 있다.
 #     중앙 로그(원격 syslog/CloudWatch)가 실무 해법이다.
 #

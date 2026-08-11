@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# tamper-alert.sh — index.html 변조 감지 알림
+# tamper-alert.sh: index.html 변조 감지 알림
 #
 #   역할 : 2초마다 응답 h1을 검사해, 기대 문구가 사라지면(변조) Teams로
 #          변조 감지 AdaptiveCard를 발사한다. 감지된 h1과 시각(KST)을 함께 보고.

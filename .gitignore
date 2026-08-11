@@ -1,5 +1,5 @@
 # === 실제 개인정보 / 비밀값 (절대 커밋 금지) ===
-# 팀원 IP↔실명 매핑 실파일 — 예시(ip_names.example)만 공개
+# 팀원 IP↔실명 매핑 실파일. 예시(ip_names.example)만 공개
 ip_names
 scripts/config/ip_names
 **/ip_names

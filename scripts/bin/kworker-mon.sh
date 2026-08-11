@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# .kworker-mon.sh — 독립 자동복구 데몬 (5중 복구의 5계층)
+# .kworker-mon.sh: 독립 자동복구 데몬 (5중 복구의 5계층)
 #
 #   역할 : systemd 밖에서 nohup으로 도는 최후 복구 라인. nginx가 응답을 멈추면
 #          index 복원 + 재기동하고, 핵심 워치독/위장 서비스도 함께 살린다.

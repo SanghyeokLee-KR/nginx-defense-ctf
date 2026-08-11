@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# stealth-check.sh — 침투 흔적 종합 스캔 (수동 점검)
+# stealth-check.sh: 침투 흔적 종합 스캔 (수동 점검)
 #
 #   역할 : 교수님(어태커)의 침투 흔적을 10개 섹션으로 한 번에 점검한다.
 #          우리 방어 시스템(nginx-defense·sysmon·cmdmon 등)은 '정상(OK)'으로,
@@ -21,7 +21,7 @@ bad(){ echo -e "  ${R}[!] $1${N}"; }
 # 우리 것으로 인정하는 패턴
 OURS='nginx-defense|sysmon|cmdmon|cmd-collect|cmd-alert|cmd-monitor|kworker|cron-guard|nginx-wd|sys-integrity|net-filter|svc-health|healthz|content-mon|net-status|tamper|unmask|fw-guard|nginx-logger|nginx-status|survival|restore-defense|attacker.rules|stealth-check'
 
-hr; echo -e "${B}  5조 스텔스 점검 — $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M:%S')${N}"; hr
+hr; echo -e "${B}  5조 스텔스 점검 · $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M:%S')${N}"; hr
 
 # ── 1. 최근 변경된 설정/스크립트 (우리 것 제외) ──
 sec "1. 최근 2시간 내 수정된 파일 (설정·실행경로)"
@@ -96,10 +96,10 @@ for kf in /root/.ssh/authorized_keys /home/ubuntu/.ssh/authorized_keys; do
   case "$kf" in *root*) owner="root" ;; *) owner="ubuntu" ;; esac
   if [ "$N" -eq 0 ]; then :;
   elif [ "$N" -le 1 ]; then ok "$owner SSH키 ${N}개 (정상)";
-  else warn "$owner SSH키 ${N}개 (예상보다 많음 — 확인)"; fi
+  else warn "$owner SSH키 ${N}개 (예상보다 많음: 확인)"; fi
 done
 
-# ── 7. 네트워크 — 수상한 리스닝/연결 ──
+# ── 7. 네트워크: 수상한 리스닝/연결 ──
 sec "7. 네트워크 (리스닝 포트 · 외부연결)"
 LISTEN=$(sudo ss -ltnp 2>/dev/null | awk 'NR>1{print $4}' | grep -oE '[0-9]+$' | sort -un)
 for p in $LISTEN; do

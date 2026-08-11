@@ -4,13 +4,13 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;fontColor=#232F3E;" value="관측·감시 파이프라인 — 이벤트 수집 → 감지 → Teams 3채널 · 로그 · 대시보드" vertex="1">
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;fontColor=#232F3E;" value="관측·감시 파이프라인: 이벤트 수집 → 감지 → Teams 3채널 · 로그 · 대시보드" vertex="1">
           <mxGeometry height="30" width="1100" x="40" y="22" as="geometry" />
         </mxCell>
         <mxCell id="subtitle" parent="1" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#5A6B73;" value="EC2 #1의 보안 이벤트(로그인·명령·nginx 상태)를 수집·감지해 Power Automate webhook으로 Teams 3채널에 실시간 알림하고, 영구 로그·대시보드로 남긴다." vertex="1">
           <mxGeometry height="20" width="1150" x="40" y="54" as="geometry" />
         </mxCell>
-        <mxCell id="ec2" parent="1" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#ED7100;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=44;spacingTop=11;fontSize=13;fontColor=#ED7100;fontStyle=1;" value="EC2 #1 — 이벤트 발생 · 수집 · 산출물" vertex="1">
+        <mxCell id="ec2" parent="1" style="rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#ED7100;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=44;spacingTop=11;fontSize=13;fontColor=#ED7100;fontStyle=1;" value="EC2 #1: 이벤트 발생 · 수집 · 산출물" vertex="1">
           <mxGeometry height="468" width="560" x="40" y="150" as="geometry" />
         </mxCell>
         <mxCell id="ec2ic" parent="1" style="sketch=0;points=[];outlineConnect=0;fontColor=#232F3E;gradientColor=#F78E04;gradientDirection=north;fillColor=#D05C17;strokeColor=#ffffff;dashed=0;html=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" value="" vertex="1">
@@ -55,10 +55,10 @@
         <mxCell id="hb" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D79B00;align=left;spacingLeft=14;verticalAlign=middle;fontSize=11;fontColor=#232F3E;" value="&lt;b&gt;&lt;font color=&quot;#9A7300&quot;&gt;5분 정기 생존보고&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#6B7785&quot;&gt;heartbeat timer → 3대+NLB+watchdog 종합&lt;/font&gt;" vertex="1">
           <mxGeometry height="56" width="300" x="790" y="544" as="geometry" />
         </mxCell>
-        <mxCell id="legend" parent="1" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#5A6B73;" value="범례 — 굵은 실선 = 알림 흐름 · 점선 = 로그 기록/폴링 · 색 = 스테이지(빨강 소스 · 보라 감지 · 파랑 전송 · 인디고 Teams · 초록 산출물)" vertex="1">
+        <mxCell id="legend" parent="1" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#5A6B73;" value="범례: 굵은 실선 = 알림 흐름 · 점선 = 로그 기록/폴링 · 색 = 스테이지(빨강 소스 · 보라 감지 · 파랑 전송 · 인디고 Teams · 초록 산출물)" vertex="1">
           <mxGeometry height="20" width="900" x="40" y="650" as="geometry" />
         </mxCell>
-        <mxCell id="note" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#B0B0B0;fontSize=11;fontColor=#52606D;verticalAlign=middle;align=center;" value="담당 분담 — A : SSH 로그인 방 · B : 명령어 감시 방 · C : nginx 다운·복구 방 (+ 생존보고)" vertex="1">
+        <mxCell id="note" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#B0B0B0;fontSize=11;fontColor=#52606D;verticalAlign=middle;align=center;" value="담당 분담: A: SSH 로그인 방 · B: 명령어 감시 방 · C: nginx 다운·복구 방 (+ 생존보고)" vertex="1">
           <mxGeometry height="40" width="700" x="456" y="690" as="geometry" />
         </mxCell>
         <mxCell id="es1" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#7B8794;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="d1">

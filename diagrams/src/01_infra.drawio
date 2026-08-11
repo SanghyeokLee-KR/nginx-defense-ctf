@@ -7,10 +7,10 @@
         <mxCell id="CDslYVoB5bd65uAnMXes-82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=4;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="" vertex="1">
           <mxGeometry height="940" width="1350" x="160" y="-3550" as="geometry" />
         </mxCell>
-        <mxCell id="CDslYVoB5bd65uAnMXes-60" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 가용성 방어 — 인프라 아키텍처" vertex="1">
+        <mxCell id="CDslYVoB5bd65uAnMXes-60" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 가용성 방어: 인프라 아키텍처" vertex="1">
           <mxGeometry height="28" width="780" x="239.9966666666678" y="-3510.003333333333" as="geometry" />
         </mxCell>
-        <mxCell id="CDslYVoB5bd65uAnMXes-61" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#5A6B73;" value="NLB 리스너 2개 — TCP:80 → tg-web(#1·#2·#3) · TCP:22 → tg-ssh(#1 전용) · #2 / #3 = AMI 클론(SSH 차단)" vertex="1">
+        <mxCell id="CDslYVoB5bd65uAnMXes-61" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#5A6B73;" value="NLB 리스너 2개: TCP:80 → tg-web(#1·#2·#3) · TCP:22 → tg-ssh(#1 전용) · #2 / #3 = AMI 클론(SSH 차단)" vertex="1">
           <mxGeometry height="20" width="980" x="239.9966666666678" y="-3480.003333333333" as="geometry" />
         </mxCell>
         <mxCell id="CDslYVoB5bd65uAnMXes-62" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="AWS Cloud" vertex="1">

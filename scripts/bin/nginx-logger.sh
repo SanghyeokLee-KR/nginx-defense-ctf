@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# nginx-logger.sh — nginx 다운/복구 타임라인 기록
+# nginx-logger.sh: nginx 다운/복구 타임라인 기록
 #
 #   역할 : 2초마다 본문을 확인해 상태 전이(up↔down)가 일어난 순간만
 #          status.log에 DOWN / RECOVERED로 남긴다. (사후 타임라인 재구성용)

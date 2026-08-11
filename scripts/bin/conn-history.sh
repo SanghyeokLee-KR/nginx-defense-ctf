@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# conn-history.sh — SSH 접속 이력 수집 (v2)
+# conn-history.sh: SSH 접속 이력 수집 (v2)
 #
 #   역할 : journalctl SSH 로그(Accepted publickey 등)를 파싱해 접속/종료
 #          타임라인을 만들고, ip_names로 이름을 붙여 대시보드용 JSON으로 출력.
@@ -20,7 +20,7 @@ who_of(){ grep -qF "${1}=" "$NAMES" 2>/dev/null && echo "us" || echo "attacker";
 
 LOG=$(sudo journalctl -u ssh --no-pager 2>/dev/null)
 
-# 기준 시점(있으면) 이후 접속만 — "지금부터 새로 쌓기"
+# 기준 시점(있으면) 이후 접속만: "지금부터 새로 쌓기"
 SINCE_FILE="/var/lib/nginx-defense/conn-since"
 SINCE_E=0
 [ -f "$SINCE_FILE" ] && SINCE_E=$(cat "$SINCE_FILE" 2>/dev/null)

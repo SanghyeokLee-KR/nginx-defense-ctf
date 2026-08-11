@@ -11,10 +11,10 @@
         <mxCell id="3" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=4;" value="" vertex="1">
           <mxGeometry height="1121" width="1340" as="geometry" />
         </mxCell>
-        <mxCell id="4" parent="2" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 방어 — 공격·방어 통합 타임라인 (1·2·3차)" vertex="1">
+        <mxCell id="4" parent="2" style="text;html=1;align=left;fontSize=22;fontStyle=1;fontColor=#232F3E;" value="5조 NGINX 방어: 공격·방어 통합 타임라인 (1·2·3차)" vertex="1">
           <mxGeometry height="32" width="1100" x="70" y="31" as="geometry" />
         </mxCell>
-        <mxCell id="5" parent="2" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="교수님의 3회 공격이 워치독 kill → 80 하이재킹 → mask(부활 경로 차단)로 점점 정교해졌으나, 다층 방어 + NLB 우회가 전부 흡수 — 전 구간 다운타임 0" vertex="1">
+        <mxCell id="5" parent="2" style="text;html=1;align=left;fontSize=12;fontColor=#6B6B6B;" value="교수님의 3회 공격이 워치독 kill → 80 하이재킹 → mask(부활 경로 차단)로 점점 정교해졌으나, 다층 방어 + NLB 우회가 전부 흡수: 전 구간 다운타임 0" vertex="1">
           <mxGeometry height="20" width="1200" x="70" y="65" as="geometry" />
         </mxCell>
         <mxCell id="6" parent="2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C0392B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.user;" value="교수님 / 어태커" vertex="1">
@@ -62,7 +62,7 @@
             <mxPoint x="1210" y="1057" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="16" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#F0997B;fontColor=#922B21;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="1차 — 자동복구(watchdog) 무력화 + 정찰 · ~00:03 KST" vertex="1">
+        <mxCell id="16" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#F0997B;fontColor=#922B21;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="1차: 자동복구(watchdog) 무력화 + 정찰 · ~00:03 KST" vertex="1">
           <mxGeometry height="24" width="1240" x="70" y="217" as="geometry" />
         </mxCell>
         <mxCell id="17" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#C0392B;strokeWidth=2;fontColor=#922B21;fontSize=11;" value="pkill -9 nginx_*_watch.sh · stop nginx · pkill -9 nginx">
@@ -80,7 +80,7 @@
             <mxPoint x="1210" y="347" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="20" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#F0997B;fontColor=#922B21;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="2차 — apache2로 80 포트 하이재킹 · ~07:50 KST" vertex="1">
+        <mxCell id="20" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#F0997B;fontColor=#922B21;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="2차: apache2로 80 포트 하이재킹 · ~07:50 KST" vertex="1">
           <mxGeometry height="24" width="1240" x="70" y="379" as="geometry" />
         </mxCell>
         <mxCell id="21" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;strokeColor=#C0392B;strokeWidth=2;fontColor=#922B21;fontSize=11;" value="apt-get install apache2 · disable nginx · fuser -k 80/tcp · start apache2">
@@ -122,7 +122,7 @@
             <mxPoint x="750" y="657" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="28" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#F0997B;fontColor=#922B21;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="3차 — systemctl mask로 부활 경로 차단 시도 · 신규 IP X.X.X.X" vertex="1">
+        <mxCell id="28" parent="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDECEA;strokeColor=#F0997B;fontColor=#922B21;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="3차: systemctl mask로 부활 경로 차단 시도 · 신규 IP X.X.X.X" vertex="1">
           <mxGeometry height="24" width="1240" x="70" y="693" as="geometry" />
         </mxCell>
         <mxCell id="29" edge="1" parent="2" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#C0392B;strokeWidth=2;fontColor=#922B21;fontSize=11;" value="ss/ps 정찰 · su - · sudo cat 방어 스크립트 분석">
@@ -155,10 +155,10 @@
         <mxCell id="34" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#854F0B;fontColor=#633806;fontSize=11;align=center;verticalAlign=middle;" value="실전 검증: 의도적 mask 재현 → 12초 내 active+enabled+200 자동 복귀 확인 (보강 불필요)" vertex="1">
           <mxGeometry height="40" width="560" x="310" y="927" as="geometry" />
         </mxCell>
-        <mxCell id="35" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;" value="결과: 1차(워치독 kill) → 2차(80 하이재킹) → 3차(mask 부활 차단)로 공격이 점점 정교해졌으나, 다층 방어(불변화·watchdog·cron·관측)와 NLB 우회가 전부 흡수 — 전 구간 체감 다운타임 0, 채점 가용성 무중단." vertex="1">
+        <mxCell id="35" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontColor=#04342C;fontSize=12;align=center;verticalAlign=middle;" value="결과: 1차(워치독 kill) → 2차(80 하이재킹) → 3차(mask 부활 차단)로 공격이 점점 정교해졌으나, 다층 방어(불변화·watchdog·cron·관측)와 NLB 우회가 전부 흡수: 전 구간 체감 다운타임 0, 채점 가용성 무중단." vertex="1">
           <mxGeometry height="50" width="1240" x="70" y="987" as="geometry" />
         </mxCell>
-        <mxCell id="36" parent="2" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례 — 빨강 실선: 공격 명령 · 빨강 점선: 정찰/분석 · 앰버: 헬스 판정·검증 · 보라: LB 라우팅 · 회색: 채점 요청 · 파랑: 정상 응답 · 청록: 방어/복구" vertex="1">
+        <mxCell id="36" parent="2" style="text;html=1;align=left;fontSize=11;fontColor=#5F5E5A;" value="범례: 빨강 실선: 공격 명령 · 빨강 점선: 정찰/분석 · 앰버: 헬스 판정·검증 · 보라: LB 라우팅 · 회색: 채점 요청 · 파랑: 정상 응답 · 청록: 방어/복구" vertex="1">
           <mxGeometry height="20" width="1240" x="70" y="1047" as="geometry" />
         </mxCell>
       </root>

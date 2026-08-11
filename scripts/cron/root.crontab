@@ -1,4 +1,4 @@
-# root.crontab — NginX 살려라 방어 스택의 cron 라인 (모두 1분 주기)
+# root.crontab: NginX 살려라 방어 스택의 cron 라인 (모두 1분 주기)
 #
 #   systemd와 '독립된' 복구·수집 라인. systemd 전체가 망가져도 cron이 살아있는 한
 #   복구가 돈다 (복구 경로 이중화).

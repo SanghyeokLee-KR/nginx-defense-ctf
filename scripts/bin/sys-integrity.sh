@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# sys-integrity.sh — 워치독 무결성 보장기 (위장 서비스)
+# sys-integrity.sh: 워치독 무결성 보장기 (위장 서비스)
 #
 #   역할 : 10초마다 워치독 A·B가 enable+active 상태인지 확인하고, 빠졌으면
 #          되살린다. '시스템 무결성 점검'처럼 보이는 이름으로 위장한 4계층.

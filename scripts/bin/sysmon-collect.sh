@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# sysmon-collect.sh — 시스템·방어 상태 종합 수집기
+# sysmon-collect.sh: 시스템·방어 상태 종합 수집기
 #
 #   역할 : ~3초마다 nginx/포트80/immutable/좀비/세션/신규계정/웹파일 변경/CPU·
 #          메모리·디스크/방어 데몬 상태 + 공격자 명령을 한 번에 모아 sysmon.json
